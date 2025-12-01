@@ -1,3 +1,5 @@
+using BackEnd_S5_L1.Models.Entity;
+using BackEnd_S5_L1.Models.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,9 +8,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddDbContext<BackEnd_S5_L1.Models.Entity.ApplicationDbContext>(
+builder.Services.AddScoped<ProductService>();
+
+
+
+
+
+
+
+//add db context
+builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+
+
+
 
 var app = builder.Build();
 

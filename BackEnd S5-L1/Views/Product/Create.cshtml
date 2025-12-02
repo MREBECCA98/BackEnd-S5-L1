@@ -37,35 +37,13 @@
 
 </form>
 
-
-@if (Model != null && Model.Any())
-{
-    var lastProduct = Model.Last();
-    <div class="col-md-4 mb-3 mt-5">
-        <div class="card bg-dark text-white" style="width: 18rem;">
-            <img class="card-img-top" src="@lastProduct.Copertina" alt="@lastProduct.Titolo" />
-            <div class="card-body">
-                <h5 class="card-title">@lastProduct.Titolo</h5>
-                <p class="card-text">@lastProduct.Autore</p>
-                <div class="dropdown mb-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Trama
-                    </button>
-                    <ul class="dropdown-menu bg-secondary p-2 ">
-                        <p class="card-text text-white">@lastProduct.bookSummary</p>
-                    </ul>
-                </div>
-                <p class="card-text">@lastProduct.Prezzo €</p>
-            </div>
-        </div>
-    </div>
 }
 
 
 
 @* table to update *@
 
-<table class="table">
+<table class="table mt-4">
     <thead>
         <tr class="text-white bg-dark text-center">
             <th scope="col">Copertina</th>

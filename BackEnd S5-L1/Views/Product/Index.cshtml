@@ -1,0 +1,23 @@
+﻿@model List<BackEnd_S5_L1.Models.Entity.Product>
+@{
+}
+
+
+<h1 class="mb-4 text-white">Book List</h1>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <img class="card-img-top" src="@product.Copertina" alt="@product.Titolo" />
+                <div class="card-body">
+                    <h5 class="card-title">@product.Titolo</h5>
+                    <p class="card-text">@product.Autore</p>
+                    <p class="card-text">@product.bookSummary</p>
+                    <p class="card-text">@product.Prezzo €</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

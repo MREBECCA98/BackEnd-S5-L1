@@ -22,7 +22,8 @@ namespace BackEnd_S5_L1.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var products = _productService.GetAll();
+            return View(products);
         }
 
         [HttpPost]
@@ -31,8 +32,10 @@ namespace BackEnd_S5_L1.Controllers
             product.Id = Guid.NewGuid();
             bool isCreated = _productService.Create(product);
 
+            var products = _productService.GetAll();
 
-            return View(product);
+
+            return View(products);
 
         }
     }

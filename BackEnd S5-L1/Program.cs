@@ -1,5 +1,5 @@
 using BackEnd_S5_L1.Models.Entity;
-using BackEnd_S5_L1.Models.Services;
+using BackEnd_S5_L1.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

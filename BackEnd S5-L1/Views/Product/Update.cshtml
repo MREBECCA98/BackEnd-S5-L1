@@ -1,5 +1,33 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BackEnd_S5_L1.Models.Entity.Product
 @{
 }
+<form asp-action="Update" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="mb-3">
+        <label class="form-label text-white">Titolo</label>
+        <input type="text" class="form-control" name="Titolo" value="@Model.Titolo">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label text-white">Autore</label>
+        <input type="text" class="form-control" name="Autore" value="@Model.Autore">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label text-white">Prezzo</label>
+        <input type="number" step="0.01" class="form-control" name="Prezzo" value="@Model.Prezzo">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label text-white">Copertina</label>
+        <input type="text" class="form-control" name="Copertina" value="@Model.Copertina">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label text-white">Descrizione</label>
+        <input type="text" class="form-control" name="bookSummary" value="@Model.bookSummary">
+    </div>
+
+    <button type="submit" class="bg-dark text-white fw-bold px-4 py-2">Modify Book</button>
+
+</form>

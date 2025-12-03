@@ -1,18 +1,18 @@
 ﻿using BackEnd_S5_L1.Models.Entity;
 
-namespace BackEnd_S5_L1.Models.Services
+namespace BackEnd_S5_L1.Services
 {
     public class ProductService
     {
         private readonly ApplicationDbContext _context;
         public ProductService(ApplicationDbContext context)
         {
-            _context = context;
+            this._context = context;
         }
 
-        public Product Get(Guid Id)
+        public Product GetId(Guid Id)
         {
-            return null;
+            return _context.Products.FirstOrDefault(p => p.Id == Id);
         }
 
         public List<Product> GetAll()
@@ -33,11 +33,27 @@ namespace BackEnd_S5_L1.Models.Services
 
         public bool Update(Product product)
         {
-            return false;
+            this._context.Products.Update(product);
+            return this._context.SaveChanges() > 0;
         }
 
         public bool Delete(Guid Id)
         {
+            Product toDelete = this.GetId(Id);
+            if (toDelete != null)
+            {
+                this._context.Products.Remove(toDelete);
+                return this.Save();
+            }
+            return false;
+        }
+
+        public bool Save()
+        {
+            if (this._context.SaveChanges() > 0)
+            {
+                return true;
+            }
             return false;
         }
 

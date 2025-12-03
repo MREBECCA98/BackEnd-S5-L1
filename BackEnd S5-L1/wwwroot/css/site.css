@@ -12,3 +12,8 @@ footer {
     white-space: nowrap;
     line-height: 60px;
 }
+
+.cardImgIndex {
+    height: 450px;
+    width: 100%;
+}

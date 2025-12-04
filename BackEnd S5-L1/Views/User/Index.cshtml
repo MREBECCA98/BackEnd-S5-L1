@@ -1,0 +1,58 @@
+﻿@model List<BackEnd_S5_L1.Models.Entity.User>
+@{
+
+}
+
+<h1 class="text-white text-center">Add User</h1>
+
+<form asp-controller="User" asp-action="Index" method="post">
+    <div class="mb-3">
+        <label class="form-label text-white">Name</label>
+        <input type="text" class="form-control" name="Name">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label text-white">Surname</label>
+        <input type="text" class="form-control" name="Cognome">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label text-white">Email</label>
+        <input type="text" class="form-control" name="Email">
+    </div>
+
+
+
+
+    <button type="submit" class="bg-dark text-white fw-bold px-4 py-2">Add User</button>
+
+</form>
+
+<h1 class="text-white text-center"> User</h1>
+
+<table class="table mt-4">
+    <thead>
+        <tr class="text-white bg-dark">
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Email</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+
+            <tr class="text-white bg-dark">
+
+                <td>@user.Name</td>
+                <td>@user.Cognome</td>
+                <td>@user.Email</td>
+
+
+
+            </tr>
+
+        }
+    </tbody>
+</table>

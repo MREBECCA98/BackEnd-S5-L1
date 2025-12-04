@@ -9,15 +9,19 @@ namespace BackEnd_S5_L1.Controllers
     public class ProductController : Controller
     {
         private readonly ProductService _productService;
-
-        public ProductController(ProductService productService)
+        private readonly UserService _userService;
+        public ProductController(ProductService productService, UserService userService)
         {
             _productService = productService;
+            _userService = userService;
         }
 
         public IActionResult Index()
         {
             var products = _productService.GetAll();
+            var users = _userService.GetAll();
+            ViewBag.Users = users;
+            ViewBag.Products = products;
             return View(products);
         }
 

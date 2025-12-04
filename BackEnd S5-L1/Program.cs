@@ -9,20 +9,13 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddScoped<ProductService>();
-
-
-
-
-
+builder.Services.AddScoped<UserService>();
 
 
 //add db context
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
-
 
 
 
